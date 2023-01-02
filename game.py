@@ -197,3 +197,14 @@ if __name__ == "__main__":
     game.root.mainloop()
 
 
+# After the game is over, log the journey
+if game.player.alive:
+    result = "Success"
+else:
+    result = "Failure"
+
+# Write the journey and result to a log file
+with open("journey_log.txt", "a") as log_file:
+    log_file.write(f"{datetime.datetime.now()}: Result: {result}\n")
+    for room in journey:
+        log_file.write(f"{room}\n")
